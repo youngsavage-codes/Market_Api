@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+out/
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# IDE files
+.vscode/
+.idea/
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+
+# Optional: Build artifacts
+*.tgz
+
+# Optional: Coverage reports
+coverage/
