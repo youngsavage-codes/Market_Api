@@ -35,7 +35,7 @@ const createOrderLogic = async (req, res) => {
 
 const fetchAllOrders = async (req, res) => {
     try {
-        const orders = await ordersService.AllOrders(req, res);
+        const orders = await ordersService.allOrders(req, res);
         res.status(200).json({message: "All Orders", orders})
     } catch(err) {
         res.status(500).json({ message: err.message });
