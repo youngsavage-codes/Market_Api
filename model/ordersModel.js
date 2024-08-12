@@ -18,26 +18,24 @@ const orderSchema = new Schema(
                 quantity: { 
                     type: Number, 
                     required: true 
-                },
-                price: { 
-                    type: Number, 
-                    required: true 
-                },
+                }
             }
         ],
         shippingAddress: {
-            addressLine1: {type: String, required: true},
-            addressLine2: {type: String},
-            city: {type: String, required: true},
-            state: {type: String, required: true},
-            postalCode: {type: String, required: true},
-            country: {type: String, required: true},
+            addressLine1: { type: String, required: true },
+            addressLine2: { type: String },
+            city: { type: String, required: true },
+            state: { type: String, required: true },
+            postalCode: { type: String, required: true },
+            country: { type: String, required: true },
         },
         paymentInfo: {
-            paymentMethod: {type: String, required: true}, // e.g., 'Credit Card', 'PayPal'
-            paymentStatus: {type: String, required: true}, // e.g., 'Pending', 'Completed'
-            paymentDate: {type: Date},
-            transactionId: {type: String}, // from payment gateway
+            paymentMethod: { type: String, required: true }, // e.g., 'Credit Card', 'PayPal'
+            paymentStatus: { type: String, required: true }, // e.g., 'Pending', 'Completed'
+            paymentDate: { type: Date, required: true },
+            transactionId: { type: String, required: true }, // from payment gateway
+            email: { type: String, required: true }, // Email for Paystack
+            amount: { type: Number, required: true } // Amount in kobo
         },
         orderStatus: { 
             type: String, 
@@ -52,9 +50,6 @@ const orderSchema = new Schema(
         shippingPrice: { 
             type: Number, 
             required: true 
-        },
-        taxPrice: { 
-            type: Number 
         },
         deliveredAt: { 
             type: Date 
