@@ -26,15 +26,8 @@ const customerSchema = new Schema(
         orders: [{
             orderId: {type: Schema.Types.ObjectId, ref: "orders"},
             orderDate: {type: Date},
-            orderStatus: {type: String},
         }],
         wishlist: [{type: Schema.Types.ObjectId, ref: "products"}],
-        cart: [
-            {
-                productId: {type: Schema.Types.ObjectId, ref: "products"},
-                quantity: {type: Number},
-            }
-        ],
         paymentMethods: [{
             cardType: {type: String},
             cardNumber: {type: String},

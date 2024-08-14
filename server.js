@@ -4,11 +4,16 @@ const connectDB = require("./config/dbConfig");
 require("dotenv").config();
 const routes = require("./data/data");
 const mongoose = require("mongoose")
+const cors = require('cors');
+
 
 // Connect to the database
 connectDB();
 
+
+// Middleware
 app.use(express.json());
+app.use(cors());
 
 // Use routes
 routes.forEach((routeObj) => {

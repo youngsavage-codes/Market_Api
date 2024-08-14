@@ -6,7 +6,7 @@ const customersService = new CustomersService();
 // CREATE CUSTOMER ACCOUNT
 const createCustomerLogic = async (req, res) => {
     try {
-        const { personalInfo, address, loginInfo, orders, wishlist, cart, paymentMethods } = req.body;
+        const { personalInfo, address, loginInfo, orders, wishlist, paymentMethods } = req.body;
 
         // Check for required fields
         if (!personalInfo || !address || !loginInfo) {
