@@ -27,7 +27,7 @@ const createCustomerLogic = async (req, res) => {
         }
 
         // Proceed to create a new customer
-        const customerData = { personalInfo, address, loginInfo, orders, wishlist, cart, paymentMethods };
+        const customerData = { personalInfo, address, loginInfo, orders, wishlist, paymentMethods };
         const newCustomer = await customersService.createCustomer(customerData);
 
         // Return success response with the created customer
