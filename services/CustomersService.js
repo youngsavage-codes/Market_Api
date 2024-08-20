@@ -52,6 +52,36 @@ class CustomersService {
         return customer;
     }
 
+    // Add a product to the customer's wishlist
+    async addWishList(customerId, productId) {
+        const customer = await Customers.findById(customerId);
+        if (!customer) {
+            throw new Error("Customer not found");
+        }
+    
+        // Add the product to the wishlist if it's not already in the wishlist
+        if (!customer.wishlist.includes(productId)) {
+            customer.wishlist.push(productId);
+            await customer.save();
+        }
+    
+        return customer;
+    }
+    
+    // Remove a product from the customer's wishlist
+    async removeWishList(customerId, productId) {
+        const customer = await Customers.findById(customerId);
+        if (!customer) {
+            throw new Error("Customer not found");
+        }
+    
+        // Remove the product from the wishlist
+        customer.wishlist = customer.wishlist.filter(item => item.toString() !== productId.toString());
+        await customer.save();
+    
+        return customer;
+    }
+
     // Login a customer
     async login(email, password) {
         // Find the customer by email

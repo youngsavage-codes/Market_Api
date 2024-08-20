@@ -4,7 +4,9 @@ const {
     getCustomersLogic, 
     updateCustomerLogic, 
     deleteCustomerLogic, 
-    loginLogic} = require("../businessLogics/customersLogic");
+    loginLogic,
+    addWishlistLogic,
+    removeWishlistLogic} = require("../businessLogics/customersLogic");
 const asyncHandler = require("express-async-handler");
 
 class CustomerController {
@@ -22,6 +24,12 @@ class CustomerController {
     })
     deleteCustomer = asyncHandler(async (req, res) => {
         await deleteCustomerLogic(req, res)
+    })
+    addWishlist = asyncHandler(async (req, res) => {
+        await addWishlistLogic(req, res);
+    })
+    removeWishlist = asyncHandler(async (req, res) => {
+        await removeWishlistLogic(req, res);
     })
     loginCustomer = asyncHandler(async (req, res) => {
         await loginLogic(req, res);

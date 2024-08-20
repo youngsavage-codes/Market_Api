@@ -144,11 +144,61 @@ const loginLogic = async (req, res) => {
     }
 };
 
+// Add a product to the customer's wishlist
+const addWishlistLogic = async (req, res) => {
+    try {
+        const { customerId, productId } = req.body;
+
+        // Validate customer ID
+        if (!mongoose.Types.ObjectId.isValid(customerId)) {
+            return res.status(400).json({ error: "Invalid customer ID provided" });
+        }
+
+        // Validate product ID
+        if (!mongoose.Types.ObjectId.isValid(productId)) {
+            return res.status(400).json({ error: "Invalid product ID provided" });
+        }
+
+        // Add product to wishlist
+        const updatedCustomer = await customersService.addWishList(customerId, productId);
+        return res.status(200).json({ message: "Product added to wishlist", customer: updatedCustomer });
+
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+// Remove a product from the customer's wishlist
+const removeWishlistLogic = async (req, res) => {
+    try {
+        const { customerId, productId } = req.body;
+
+        // Validate customer ID
+        if (!mongoose.Types.ObjectId.isValid(customerId)) {
+            return res.status(400).json({ error: "Invalid customer ID provided" });
+        }
+
+        // Validate product ID
+        if (!mongoose.Types.ObjectId.isValid(productId)) {
+            return res.status(400).json({ error: "Invalid product ID provided" });
+        }
+
+        // Remove product from wishlist
+        const updatedCustomer = await customersService.removeWishList(customerId, productId);
+        return res.status(200).json({ message: "Product removed from wishlist", customer: updatedCustomer });
+
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     createCustomerLogic,
     getSingleCustomerLogic,
     getCustomersLogic,
     updateCustomerLogic,
     deleteCustomerLogic,
-    loginLogic
+    loginLogic,
+    removeWishlistLogic,
+    addWishlistLogic
 };

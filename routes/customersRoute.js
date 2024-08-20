@@ -5,6 +5,8 @@ const CustomerController = require("../controller/customersController")
 const customerController = new CustomerController()
 
 route.post("/customer/create",  customerController.createCustomer);
+route.post("/wishlist/add",  customerController.addWishlist);
+route.post("/wishlist/add",  customerController.removeWishlist);
 route.get("/customer/",  customerController.getCustomers);
 route.get("/customer/:id",  customerController.getSingleCustomer);
 route.put("/customer/:id",  customerController.updateCustomer);
