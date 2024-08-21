@@ -15,7 +15,7 @@ const productSchema = new Schema(
             trim: true
         },
         category: {
-            type: String,
+            type: Schema.Types.ObjectId,
             required: true,
             trim: true
         },
