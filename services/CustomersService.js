@@ -14,6 +14,18 @@ class CustomersService {
         return customer;
     }
 
+    async verifyEmail() {
+
+    }
+
+    async sendOtp() {
+
+    }
+
+    async forgotPassword(email) {
+
+    }
+
     // Get a single customer by ID
     async getSingleCustomer(id) {
         const customer = await Customers.findById(id);
